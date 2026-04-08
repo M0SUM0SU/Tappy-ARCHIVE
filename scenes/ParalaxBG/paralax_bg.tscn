@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://bycytfrv88yp6"]
+
+[ext_resource type="Texture2D" uid="uid://dq3t0p71xenn" path="res://assets/background/sky.png" id="1_cra0s"]
+[ext_resource type="Texture2D" uid="uid://dgvbpeoc1ey7a" path="res://assets/background/rocks_2.png" id="1_jimk0"]
+[ext_resource type="Texture2D" uid="uid://pb1r6b25ty5j" path="res://assets/background/rocks_1.png" id="1_yhqhq"]
+[ext_resource type="Texture2D" uid="uid://depf8nhd5t3ky" path="res://assets/background/clouds_2.png" id="3_6ibmv"]
+[ext_resource type="Texture2D" uid="uid://bp8y66n2ommq2" path="res://assets/background/clouds_3.png" id="4_k0yk1"]
+[ext_resource type="Texture2D" uid="uid://dn0tjcr01v1de" path="res://assets/background/clouds_4.png" id="5_mt7vv"]
+
+[node name="ParalaxBg" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(427, 320)
+texture = ExtResource("1_cra0s")
+
+[node name="Clouds2" type="Parallax2D" parent="."]
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-20, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds2"]
+texture = ExtResource("3_6ibmv")
+centered = false
+
+[node name="Clouds3" type="Parallax2D" parent="."]
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-30, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds3"]
+texture = ExtResource("4_k0yk1")
+centered = false
+
+[node name="Clouds4" type="Parallax2D" parent="."]
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-40, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds4"]
+texture = ExtResource("5_mt7vv")
+centered = false
+
+[node name="Moutain2" type="Parallax2D" parent="."]
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-80, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Moutain2"]
+texture = ExtResource("1_yhqhq")
+centered = false
+
+[node name="Moutain1" type="Parallax2D" parent="."]
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-100, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Moutain1"]
+texture = ExtResource("1_jimk0")
+centered = false

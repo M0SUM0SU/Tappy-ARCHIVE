@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://by6sfr535iwg8"]
+
+[ext_resource type="Script" uid="uid://citu287bxg7ou" path="res://scenes/UI/game_ui.gd" id="1_h0rig"]
+[ext_resource type="FontFile" uid="uid://wj15rlncbw4r" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_kfjql"]
+[ext_resource type="LabelSettings" uid="uid://bn6eoe3eu5hq5" path="res://resources/yellow_title.tres" id="2_h0rig"]
+[ext_resource type="AudioStream" uid="uid://dpwesfce3l0yp" path="res://assets/audio/score.wav" id="4_yr8ot"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dbpsm"]
+font = ExtResource("1_kfjql")
+font_size = 36
+font_color = Color(0.930847, 0.206265, 0, 1)
+outline_size = 10
+outline_color = Color(0.558378, 0, 0.0437704, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2oifk"]
+font = ExtResource("1_kfjql")
+font_size = 36
+font_color = Color(0.721569, 1, 1, 1)
+outline_size = 5
+outline_color = Color(2.88785e-06, 0.633317, 0.633737, 1)
+
+[node name="Game UI" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h0rig")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Score" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "0000"
+label_settings = ExtResource("2_h0rig")
+
+[node name="Game_over" type="Label" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 144.0
+offset_top = 408.0
+offset_right = 335.0
+offset_bottom = 445.0
+size_flags_horizontal = 4
+text = "Game Over"
+label_settings = SubResource("LabelSettings_dbpsm")
+
+[node name="Press_space" type="Label" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 135.0
+offset_top = 408.0
+offset_right = 344.0
+offset_bottom = 445.0
+size_flags_horizontal = 4
+text = "Press Space"
+label_settings = SubResource("LabelSettings_2oifk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yr8ot")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccem8o7s6dtvt"]
+
+[ext_resource type="PackedScene" uid="uid://gnumg4lrdnjl" path="res://scenes/Laser/laser.tscn" id="1_3ahhd"]
+[ext_resource type="Script" uid="uid://jipkg73g6r4k" path="res://scenes/pipes.gd" id="1_prsvi"]
+[ext_resource type="PackedScene" uid="uid://comgqt6qgrhmc" path="res://scenes/Pipes/pipe.tscn" id="2_prsvi"]
+
+[node name="Pipes" type="Node2D"]
+script = ExtResource("1_prsvi")
+
+[node name="Laser" parent="." instance=ExtResource("1_3ahhd")]
+visible = false
+
+[node name="Lower" parent="." instance=ExtResource("2_prsvi")]
+position = Vector2(0, 80)
+
+[node name="Upper" parent="." instance=ExtResource("2_prsvi")]
+position = Vector2(0, -80)
+rotation = 3.14159
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(229, 0)
+
+[connection signal="body_entered" from="Laser" to="." method="_on_laser_body_entered"]
+[connection signal="body_entered" from="Lower" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="Upper" to="." method="_on_pipe_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_screen_exited"]
